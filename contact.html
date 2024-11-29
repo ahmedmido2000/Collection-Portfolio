@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collection</title>
+    <!--bootstrap-file-->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!--bootstrap-file-->
+    <!--fontawesome-file-->
+    <link rel="stylesheet" href="css/all.min.css" />
+    <!--icons-site-->
+    <link rel="icon" type="png" href="img/logo.png" />
+    <!--icons-site-->
+    <link rel="stylesheet" href="css/style.css" />
+    <!--google-font-->
+    <!--woow AnimateFiles Css-->
+    <link rel="stylesheet" href="css/all.min.css" />
+    <!--woow AnimateFiles Css-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&display=swap"
+      rel="stylesheet" />
+      <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <!--google-font-->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
+  </head>
+  <body class="text-white">
+      <section class="contact">
+        <div class="overlay"></div>
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg px-3 px-md-5 pt-0">
+            <a href="index.html"><img src="./img/logo.png" style="width: 100px" alt="" /></a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon">
+                <span style="color: #fff"
+                  ><i class="fa-solid fa-bars p-1"></i
+                ></span>
+              </span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+              <div class="d-flex flex-column align-items-end justify-content-center gap-2 w-100">
+                <ul class="navbar-nav order-2 order-lg-1 text-center align-items-end align-items-lg-center justify-content-center gap-3 mt-3">
+                  <li class="nav-item">
+                    <a href="subscription.html" class="text-decoration-none shadow rounded-3 text-white py-1 hovers px-3 fw-bold light-black border">Subscriotion</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="connect-smart.html" class="text-decoration-none shadow rounded-3 text-white py-1 hovers px-3 fw-bold light-black border">Collectsmart</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="login.html" class="text-decoration-none bg-white text-black shadow rounded-pill py-1 hovers px-3 fw-bold">Login</a>
+                  </li>
+                  <li class="nav-item fw-bold">
+                    <div class="form-box">
+                      <div class="button-box d-flex justify-content-between border shadow bg-white">
+                        <div id="btn"></div>
+                        <button type="button" class="toggle-btn py-1 px-3 active" onclick="leftClick(this)">AR</button>
+                        <button type="button" class="toggle-btn py-1 px-3" onclick="rightClick(this)">EN</button>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="navbar-nav order-1 order-lg-2 second-nav text-center">
+                  <li class="nav-item">
+                    <a class="nav-link fw-bold" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link fw-bold" href="about.html"
+                      >About</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link fw-bold" href="services.html">Services</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link fw-bold" href="blog.html">Blog</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link fw-bold" href="market-place.html">Credit Tools</a>
+                  </li>
+                  <!-- <li class="nav-item">
+                    <a class="nav-link fw-bold" href="pricing.html">Pricing</a>
+                  </li> -->
+                  <li class="nav-item">
+                    <a class="nav-link fw-bold active" href="contact.html">Contact Us</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          </div>
+        <div class="container">
+            <h2 class="trust-title mt-5 zIndex position-relative text-center fw-bold">Contact us</h2>
+            <p class="paragraph text-center">Whether you have a request, a query, or want to work with us, use the form below to get in touch with our team.</p>
+          <div class="row justify-content-center p-5">
+            <div class="col-md-6">
+              <div class="d-flex flex-column gap-1">
+                <h6 class="zIndex">First name :</h6>
+                <input type="text" class="zIndex form-control py-3" placeholder="First name ">
+              </div>
+              <div class="d-flex flex-column gap-1 mt-4">
+                <h6 class="zIndex">Last  name :</h6>
+                <input type="text" class="zIndex form-control py-3" placeholder="Last name ">
+              </div>
+              <div class="d-flex flex-column gap-1 mt-4">
+                <h6 class="zIndex">Your email :</h6>
+                <input type="text" class="zIndex form-control py-3" placeholder="Your email ">
+              </div>
+              <div class="d-flex flex-column gap-1 mt-4">
+                <h6 class="zIndex">Message :</h6>
+                <textarea class="zIndex form-control py-3" placeholder="Message" rows="5"></textarea>
+              </div>
+              <div class="contact-btn m-auto py-3 mt-5 text-center hovers fw-bold zIndex">Submit</div>
+            </div>
+          </div>
+          <div class="row py-5">
+            <div class="col-md-4 mb-5 text-center">
+              <h5 class="fw-bold">Contacts</h5>
+              <p class="m-0">Info@asimal.com</p>
+              <p class="m-0">Phone/+201204222285</p>
+            </div>
+            <div class="col-md-4 mb-5 text-center">
+              <h5 class="fw-bold">Follow us</h5>
+              <div class="d-flex justify-content-center gap-4">
+                <i class="fa-brands fa-facebook-square fs-3"></i>
+                <i class="fa-brands fa-linkedin fs-3"></i>
+                <i class="fa-brands fa-youtube fs-3"></i>
+              </div>
+            </div>
+            <div class="col-md-4 mb-5 text-center">
+              <h5 class="fw-bold">Loaction</h5>
+              <p class="m-0">New Cairo, Abrial mall office 30 CAIRO.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+    <!--scirpt Files-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/main.js"></script>
+    <!--scirpt Files-->
+  </body>
+</html>

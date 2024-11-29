@@ -1,0 +1,592 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: #0F1112 !important;
+}
+.light-black{
+  background-color: #162529;
+}
+.hovers{
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.hovers:hover{
+  opacity: 0.8;
+}
+.text-black{
+  color: #000 !important;
+}
+header, .contact {
+  position: relative;
+  background: url(../img/bg-1.png);
+  min-height: 100vh;
+  width: 100%;
+  background-size: cover; /* Ensure the background fully covers the header */
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Add animation */
+  animation: moveBackground 15s linear infinite;
+}
+
+/* Keyframes to animate background */
+@keyframes moveBackground {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 0 -100px; /* Vertical movement */
+  }
+  100% {
+    background-position: 0 0; /* Reset to original position */
+  }
+}
+.overlay{
+  position: absolute;
+  background-color: #0D6664;
+  opacity: 0.2;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.second-nav .nav-item .nav-link{
+  color: #fff;
+  text-shadow: 
+  2px 3px 5px rgba(255, 255, 255, 0.3),   /* bottom-right */
+  -2px -3px 5px rgba(255, 255, 255, 0.3),  /* top-left */
+  -2px 3px 5px rgba(255, 255, 255, 0.3),   /* bottom-left */
+  2px -3px 5px rgba(255, 255, 255, 0.3);   /* top-right */
+}
+.second-nav .nav-item .nav-link::after{
+  content: "";
+  height: 3px;
+  background-color: #01FFFF;
+  border-radius: 3px;
+  bottom: 11px;
+  width: 0;
+  transition:all .8s ;
+  display: block;
+}
+.second-nav .nav-item .nav-link:hover::after ,.second-nav .nav-item .nav-link.active::after{
+  width: 100%;
+}
+.button-box {
+	width: 100px;
+	position: relative;
+	border-radius: 30px;
+}
+
+.toggle-btn {
+  color: #0D0707;
+  font-weight: bold;
+	cursor: pointer;
+	background: transparent;
+	border: 0;
+	outline: none;
+	position: relative;
+	text-align: center;
+}
+.toggle-btn.active{
+  color: #fff;
+}
+
+#btn {
+	left: 0;
+	top: 0;
+	position: absolute;
+	width: 50px;
+	height: 100%;
+	background: #162529;
+  border: 2px solid #fff;
+	border-radius: 30px;
+	transition: .5s;
+}
+.planet {
+  height: auto;
+  transform-style: preserve-3d;
+  animation: spin 150s linear infinite; /* Spin animation */
+}
+@keyframes spin {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+.video-section{
+  background: url(../img/bg-2.png);
+  min-height:100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+    /* Add animation */
+    animation: moveBackground 15s linear infinite;
+}
+.vedio-container{
+  width: 80%;
+  margin: auto;
+  height: 85vh;
+}
+.vedio-container iframe{
+  width: 100%;
+  height: 100%;
+  box-shadow: 
+  0px 0px 4px #01FFFF,   /* center shadow */
+  4px 4px 4px #01FFFF,   /* bottom-right */
+  -4px -4px 4px #01FFFF,  /* top-left */
+  -4px 4px 4px #01FFFF,   /* bottom-left */
+  4px -4px 4px #01FFFF;   /* top-right */
+  border-radius: 10px;
+}
+.about-title{
+  color:#009999 ;
+  font-size: 50px;
+  text-shadow: 
+  -1px -1px 0 #fff,  /* Top-left shadow */
+  1px -1px 0 #fff,   /* Top-right shadow */
+  -1px 1px 0 #fff,   /* Bottom-left shadow */
+  1px 1px 0 #fff;
+}
+.about-title span{
+  color: #224041;
+}
+.about-div{
+  background-color: #115153;
+  border-radius: 30px 30px 0 0;
+  border-bottom: 10px solid #01FFFF;
+}
+.about-desc{
+  width: 60%;
+  line-height: 1.3;
+  letter-spacing: 1.5px;
+}
+@media (max-width:992px) {
+  .about-desc{
+    width: 100%;
+  }
+}
+.floating-section{
+  background: url(../img/bg-3.png);
+  min-height:100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.floating-buble{
+  box-shadow: 10px 16px 20px 0px #224041 inset;
+  box-shadow: 0px 2px 10px 0px #FFFFFF94 inset;
+  box-shadow: 0px 4px 80px 0px #0F6F72;
+  background-color: #062024;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: absolute;
+  transition: all 2s ease-in-out;
+}
+.floating-buble:hover{
+  scale: 1.2;
+
+}
+.floating-parent .floating-buble:first-child{
+  top: 200px;
+  left: 25%;
+}
+.floating-parent .floating-buble:nth-child(2){
+  top: 400px;
+  left: 45%;
+}
+.floating-parent .floating-buble:nth-child(3){
+  top: 5%;
+  left: 45%;
+}
+.floating-parent .floating-buble:last-child{
+  top: 200px;
+  left: 65%;
+}
+@media (max-width:992px) {
+  .floating-parent .floating-buble:first-child{
+    top: 100px;
+    left: 100px;
+  }
+  .floating-parent .floating-buble:nth-child(2){
+    top: 400px;
+    left: 40px;
+  }
+  .floating-parent .floating-buble:nth-child(3){
+    top: 35%;
+    left: 35%;
+  }
+  .floating-parent .floating-buble:last-child{
+    top: 40px;
+    right: 150px;
+  }
+}
+@media (max-width:767px) {
+  .floating-buble{
+    position: unset;
+  }
+  .floating-parent .floating-buble:first-child{
+  margin: 20px auto;
+  }
+  .floating-parent .floating-buble:nth-child(2){
+
+    margin: 20px auto;
+  }
+  .floating-parent .floating-buble:nth-child(3){
+
+    margin: 20px auto;
+  }
+  .floating-parent .floating-buble:last-child{
+
+    margin: 20px auto;
+  }
+}
+.help-title{
+  font-size: 50px;
+  background-image: linear-gradient(to right, #fff, #456749);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+.contact-btn{
+  box-shadow: 0px 0px 16px -2px #FFFFFF;
+  background-color: #26F2FF36;
+  width: 150px;
+  position: relative;
+  border-radius: 10px;
+}
+.approach-card{
+  background: linear-gradient(to right, #0F2E32D9, #0E1B21DE);
+  border-radius: 10px;
+}
+.approach-card p{
+  color: #D0D0D0;
+  line-height: 1.6;
+  font-size: 20px;
+  margin: 0;
+}
+.paragraph{
+  line-height: 1.6;
+  font-size: 22px;
+  margin: 0;
+}
+.transform-80{
+  transform:translateY(-80px);
+}
+@media (max-width:767px) {
+  .transform-80{
+    transform:translateY(0px);
+  }
+}
+.benifits-section{
+  background: url(../img/bg-4.png);
+  min-height:100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+      /* Add animation */
+      animation: moveBackground 15s linear infinite;
+}
+.trust-title{
+  font-size: 50px;
+  font-style: italic;
+}
+.trust-card img{
+  width: 200px;
+  height: 120px;
+  border-radius: 10px;
+}
+.trust-pagination span{
+  background-color: #01FFFF;
+  width: 18px;
+  height: 18px;
+}
+.contact input, .contact textarea{
+  box-shadow: 0px 0px 19px 0px #FFFFFF;
+  background-color: #757F7F;
+  border: none;
+  border-radius: 15px;
+}
+.contact input::placeholder, .contact textarea::placeholder{
+  color: #224041;
+}
+.zIndex{
+  z-index: 1;
+}
+.about-section{
+  background: url(../img/bg-5.png);
+  min-height:100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.choose-us-section{
+  background: url(../img/bg-6.png);
+  min-height:100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+        /* Add animation */
+        animation: moveBackground 15s linear infinite;
+}
+.why-1{
+  box-shadow: 0px 0px 16px -2px #FFFFFF;
+background-color: #21A8A8;
+border-radius: 10px;
+}
+.why-2{
+  box-shadow: 0px 0px 16px -2px #FFFFFF;
+background-color: #49334A;
+border-radius: 10px;
+}
+.why-3{
+  box-shadow: 0px 0px 16px -2px #FFFFFF;
+background-color: #2F3B69;
+border-radius: 10px;
+}
+.why-4{
+  box-shadow: 0px 0px 16px -2px #FFFFFF;
+background-color: #456749;
+border-radius: 10px;
+}
+.card-img img{
+  height: 250px;
+}
+/* Modal container styling */
+.modal-dialog {
+  max-width: 800px !important; /* Increased width */
+  margin: auto;
+}
+
+.modal-content {
+  background-color: #224041; /* Updated background color */
+  border-radius: 8px;
+  padding: 20px;
+  border: none; /* Remove any border for a clean look */
+}
+
+/* Step indicator and connector styling */
+.step-indicator {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #324A52; /* Default background */
+  border: 2px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  color: white;
+  position: relative; /* Align with the connector */
+}
+
+.step-indicator.active {
+  background-color: #40BFFF; /* Active step color */
+}
+
+.step-indicator.completed {
+  background-color: #40BFFF; /* Completed step color */
+}
+
+.step-connector {
+  width: 35px; /* Adjust the width */
+  height: 2px;
+  background-color: #40BFFF; /* Connectors with same color as completed and active */
+  margin: 0; /* Remove the space between indicator and connector */
+  position: relative; /* Aligning connectors */
+  top:17px; /* Connect the top and bottom perfectly */
+}
+
+/* Modal header customization */
+.modal-header {
+  padding: 10px 20px;
+}
+
+#backArrow {
+  margin-right: auto;
+}
+
+.modal-title {
+  text-align: center;
+  flex-grow: 1;
+}
+
+.btn-close-white {
+  filter: invert(1);
+}
+
+/* Input fields width increase */
+.input-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-group input {
+  width: 48%; /* Larger input fields */
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #DFDEDE;
+  color: white;
+}
+
+.input-group input:focus {
+  border-color: #40BFFF;
+  outline: none;
+}
+header.about{
+  position: relative;
+  background: url(../img/bg-7.png);
+  min-height: 100vh;
+  width: 100%;
+  background-size: cover; /* Ensure the background fully covers the header */
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Add animation */
+  animation: moveBackground 15s linear infinite;
+}
+.services{
+  position: relative;
+  background: url(../img/bg-8.png);
+  min-height: 100vh;
+  width: 100%;
+  background-size: cover; /* Ensure the background fully covers the header */
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Add animation */
+  animation: moveBackground 15s linear infinite;
+}
+.img-shadow{
+  box-shadow: 0px 0px 11px 10px #FFFFFF87;
+}
+.service-middle{
+  position: relative;
+  background: url(../img/bg-9.png);
+  min-height: 100vh;
+  width: 100%;
+  background-size: cover; /* Ensure the background fully covers the header */
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Add animation */
+  animation: moveBackground 15s linear infinite;
+}
+header.blog{
+  position: relative;
+  background: url(../img/bg-10.png);
+  min-height: 100vh;
+  width: 100%;
+  background-size: cover; /* Ensure the background fully covers the header */
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Add animation */
+  animation: moveBackground 15s linear infinite;
+}
+.benefits-section{
+  position: relative;
+  background: url(../img/bg-11.png);
+  min-height: 100vh;
+  width: 100%;
+  background-size: cover; /* Ensure the background fully covers the header */
+  background-position: right;
+  background-repeat: no-repeat;
+}
+.bg-12-section{
+  position: relative;
+  background: url(../img/bg-12.png);
+  min-height: 100vh;
+  width: 100%;
+  background-size: cover; /* Ensure the background fully covers the header */
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Add animation */
+  animation: moveBackground 15s linear infinite;
+}
+.bg-13-section{
+  position: relative;
+  background: url(../img/bg-13.png);
+  min-height: 100vh;
+  width: 100%;
+  background-size: cover; /* Ensure the background fully covers the header */
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Add animation */
+  animation: moveBackground 15s linear infinite;
+}
+.bg-14-section{
+  position: relative;
+  background: url(../img/bg-14.png);
+  min-height: 100vh;
+  width: 100%;
+  background-size: cover; /* Ensure the background fully covers the header */
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Add animation */
+  animation: moveBackground 15s linear infinite;
+}
+.bg-15-section{
+  position: relative;
+  background: url(../img/bg-15.png);
+  min-height: 100vh;
+  width: 100%;
+  background-size: cover; /* Ensure the background fully covers the header */
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Add animation */
+  animation: moveBackground 15s linear infinite;
+}
+.bg-16-section{
+  position: relative;
+  background: url(../img/bg-16.png);
+  min-height: 100vh;
+  width: 100%;
+  background-size: cover; /* Ensure the background fully covers the header */
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Add animation */
+  animation: moveBackground 15s linear infinite;
+}
+.border-rl{
+  border-right: 3px solid #fff;
+  border-left: 3px solid #fff;
+}
+.width-75{
+  width: 75%;
+}
+@media (max-width:767px) {
+  .width-75{
+    width: 100%;
+  }
+  
+}
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+video {
+  width: 100%;
+  height: 100vh;
+  display: block; /* Removes unwanted spacing under the video */
+  object-fit: cover; /* Ensures the poster image covers the full width */
+}

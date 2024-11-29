@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collection</title>
+    <!--bootstrap-file-->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!--bootstrap-file-->
+    <!--fontawesome-file-->
+    <link rel="stylesheet" href="css/all.min.css" />
+    <!--icons-site-->
+    <link rel="icon" type="png" href="img/logo.png" />
+    <!--icons-site-->
+    <link rel="stylesheet" href="css/style.css" />
+    <!--google-font-->
+    <!--woow AnimateFiles Css-->
+    <link rel="stylesheet" href="css/all.min.css" />
+    <!--woow AnimateFiles Css-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&display=swap"
+      rel="stylesheet" />
+      <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <!--google-font-->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+    </head>
+
+
+<!-- Payment Modal -->
+<div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="background-color: #1B3B47; border-radius: 10px;">
+        <div class="modal-header border-0 d-flex justify-content-between align-items-center">
+          <!-- Back Arrow -->
+          <i class="fas fa-arrow-left text-white fs-5" id="backArrow" onclick="goBack()" style="cursor: pointer;"></i>
+          <!-- Title in the Center -->
+          <h5 class="modal-title text-white" id="paymentModalLabel">Make Payment</h5>
+          <!-- Close Button -->
+          <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-white">
+          <!-- Step indicators with numbers -->
+          <div class="d-flex justify-content-center mb-4">
+            <div class="step-indicator text-center active" id="step1-indicator">
+              <span>1</span>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step-indicator text-center" id="step2-indicator">
+              <span>2</span>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step-indicator text-center" id="step3-indicator">
+              <span>3</span>
+            </div>
+          </div>
+  
+          <!-- Step 1: Form Fields -->
+          <div id="step1-form" class="step-form">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <input type="text" class="form-control mb-2" placeholder="First Name" style="background-color: #DFDEDE; border: none; color: #ffffff;">
+                <input type="email" class="form-control mb-2" placeholder="Email Address" style="background-color: #DFDEDE; border: none; color: #ffffff;">
+                <h6 class="mb-3" style="color:#40BFFF">Select Method Of Payment</h6>
+                <div class="bg-white p-4">
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="paymentMethod" id="creditCard" checked>
+                    <div class="d-flex align-items-center gap-2">
+                      <img src="img/pay-1.png" alt="">
+                      <label class="form-check-label" style="color:#223263 ;" for="creditCard">Credit Card or Debit</label>
+                    </div>
+                  </div>
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="paymentMethod" id="paypal">
+                    <div class="d-flex align-items-center gap-2">
+                      <img src="img/pay-2.png" alt="">
+                      <label class="form-check-label" style="color:#223263 ;" for="paypal">Paypal</label>
+                    </div>
+                  </div>
+                  <div class="form-check mb-4">
+                    <input class="form-check-input" type="checkbox" name="paymentMethod" id="bankTransfer">
+                    <div class="d-flex align-items-center gap-2">
+                      <img src="img/pay-3.png" alt="">
+                      <label class="form-check-label" style="color:#223263 ;" for="bankTransfer">Bank Transfer</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <input type="text" class="form-control mb-2" placeholder="Last Name" style="background-color: #DFDEDE; border: none; color: #ffffff;">
+                <textarea class="form-control mb-2" placeholder="Address for Delivery" rows="4" style="background-color: #DFDEDE; border: none; color: #ffffff;"></textarea>
+                <input type="text" class="form-control mb-2" placeholder="Mobile Phone" style="background-color: #DFDEDE; border: none; color: #ffffff;">
+              </div>
+            </div>
+            <!-- Go to Payment Button for Step 1 -->
+            <div class="text-center">
+              <button type="button" id="goToPayment" class="btn btn-block w-auto hovers text-white fw-bold px-3 py-2 mt-2" style="background-color: #0D2736; border-radius: 25px;">Go to Payment</button>
+            </div>
+          </div>
+  
+          <!-- Step 2: Payment Details Form -->
+          <div id="step2-form" class="step-form d-none">
+            <!-- Replace with your step 2 form content -->
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="img/visa.jpeg" style="border-radius:20px ;" class="img-fluid" alt="">
+                </div>
+                <div class="col-md-6">
+                    <h6 class="mb-4">Enter Payment Details</h6>
+                    <input type="text" class="form-control mb-2" placeholder="Card Number" style="background-color: #DFDEDE; border: none; color: #ffffff;">
+                    <div class="d-flex gap-2">
+                        <input type="text" class="form-control w-50 mb-2" placeholder="Expiration Date" style="background-color: #DFDEDE; border: none; color: #ffffff;">
+                        <input type="text" class="form-control w-50 mb-2" placeholder="CVV" style="background-color: #DFDEDE; border: none; color: #ffffff;">
+                    </div>
+                    <input type="text" class="form-control mb-2" placeholder="Holder Number" style="background-color: #DFDEDE; border: none; color: #ffffff;">
+                    <div class="d-flex gap-2">
+                        <input type="checkbox" id="save">
+                        <label for="save">Save this credit card</label>
+                    </div>
+                </div>
+            </div>
+            <!-- Complete Payment Button -->
+            <div class="text-center">
+              <button type="button" id="completePayment" class="btn btn-block w-auto hovers text-white fw-bold px-3 py-2 mt-4" style="background-color: #0D2736; border-radius: 25px;">Confirm</button>
+            </div>
+          </div>
+          
+          <!-- Step 3: Payment Confirmation -->
+<div id="step3-form" class="step-form text-center d-none">
+    <i class="fa-solid fa-check-circle" style="color:#40BFFF ;font-size: 120px;"></i>
+    <h3 class="mt-2">Success</h3>
+    <div class="text-center">
+        <button type="button" class="btn btn-block w-auto hovers text-white fw-bold px-3 py-2 mt-4" style="background-color: #0D2736; border-radius: 25px;" data-bs-dismiss="modal">Copmlete</button>
+    </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+
+  <body class="text-white">
+      <section class="video-section">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg px-3 px-md-5 pt-0">
+            <a href="index.html"><img src="./img/logo.png" style="width: 100px" alt="" /></a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon">
+                <span style="color: #fff"
+                  ><i class="fa-solid fa-bars p-1"></i
+                ></span>
+              </span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+              <div class="d-flex flex-column align-items-end justify-content-center gap-2 w-100">
+                <ul class="navbar-nav order-2 order-lg-1 text-center align-items-end align-items-lg-center justify-content-center gap-3 mt-3">
+                  <li class="nav-item">
+                    <a href="subscription.html" class="text-decoration-none shadow rounded-3 text-white py-1 hovers px-3 fw-bold light-black border">Subscriotion</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="connect-smart.html" class="text-decoration-none shadow rounded-3 text-white py-1 hovers px-3 fw-bold light-black border">Collectsmart</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="login.html" class="text-decoration-none bg-white text-black shadow rounded-pill py-1 hovers px-3 fw-bold">Login</a>
+                  </li>
+                  <li class="nav-item fw-bold">
+                    <div class="form-box">
+                      <div class="button-box d-flex justify-content-between border shadow bg-white">
+                        <div id="btn"></div>
+                        <button type="button" class="toggle-btn py-1 px-3 active" onclick="leftClick(this)">AR</button>
+                        <button type="button" class="toggle-btn py-1 px-3" onclick="rightClick(this)">EN</button>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="navbar-nav order-1 order-lg-2 second-nav text-center">
+                  <li class="nav-item">
+                    <a class="nav-link fw-bold" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link fw-bold" href="about.html"
+                      >About</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link fw-bold" href="services.html">Services</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link fw-bold" href="blog.html">Blog</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link fw-bold active" href="market-place.html">Credit Tools</a>
+                  </li>
+                  <!-- <li class="nav-item">
+                    <a class="nav-link fw-bold" href="pricing.html">Pricing</a>
+                  </li> -->
+                  <li class="nav-item">
+                    <a class="nav-link fw-bold" href="contact.html">Contact Us</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+              <div class="d-flex justify-content-center align-items-center gap-3 mt-3">
+                <div class="form-group position-relative">
+                    <input
+                      type="email"
+                      class="form-control mb-2 ps-5"
+                      placeholder="search" />
+                    <i
+                      class="fa-solid fa-search position-absolute ps-3 text-secondary" style="top:33% ;"></i>
+                  </div>
+              </div>
+              <div class="row mt-5">
+                <div class="col-3"></div>
+                <div class="col-md-3" data-aos="fade-right" data-aos-duration="3000">
+                    <img src="img/course.png" style="height:350px ;" class="img-fluid w-100 mb-3" alt="">
+                </div>
+                <div class="col-md-6 px-5" data-aos="fade-up" data-aos-duration="3000">
+                    <h2>Marketing course</h2>
+                    <div class="d-flex gap-2 pb-4" style="border-bottom:3px solid  ;">
+                        <i class="fa-solid fa-star fs-6 text-warning"></i>
+                        <i class="fa-solid fa-star fs-6 text-warning"></i>
+                        <i class="fa-solid fa-star fs-6 text-warning"></i>
+                        <i class="fa-solid fa-star fs-6 text-warning"></i>
+                        <i class="fa-solid fa-star fs-6 text-secondary"></i>
+                    </div>
+                    <p class="paragraph mt-2">"Learn the fundamentals of marketing with a comprehensive course that helps you understand and apply modern marketing strategies successfully. Boost your business success and increase your sales!"</p>
+                    <h2 class="mt-3" style="color:#01FFFF ;">course is comprehensive</h2>
+                    <ul>
+                        <li><h6>Understanding your target audience</h6></li>
+                        <li><h6>Conducting competitive analysis.</h6></li>
+                        <li><h6>Traditional vs. digital marketing</h6></li>
+                        <li><h6>Developing a marketing plan</h6></li>
+                    </ul>
+                    <h2 class="mt-3 fw-bold" style="color:#BDBDBD ;">Duration of the course : 34 hour </h2>
+                    <div class="d-flex justify-content-center align-items-center gap-3 mt-2">
+                        <span class="fs-4 fw-bold text-info">$299,43</span>
+                        <span class="fs-5 fw-bold text-secondary text-decoration-line-through">$534,33</span>
+                        <span class="fs-6 fw-bold text-danger">24% Off</span>
+                    </div>
+                    <div class="d-flex gap-3 mt-3 pb-3" style="border-bottom:3px solid  ;">
+                        <div class="btn text-white fw-bold px-5 py-2 hovers" style="background-color:#08212C;" data-bs-toggle="modal" data-bs-target="#paymentModal">Buy now</div>                        <div class="btn text-white fw-bold py-2 px-3 hovers" style="background-color:#08212C ;"><i class="fa-regular fa-heart fs-5" style="color: #33A0FF;"></i></div>
+                    </div>
+                </div>
+            </div>
+            <h2 class="fw-bold mb-5 mt-4 text-center help-title">Related courses</h2>
+            <div class="swiper pb-4 course-swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper my-5">
+                  <!-- Slides -->
+                  <div class="swiper-slide">
+                    <div class="card bg-transparent ms-3 h-100" style="border: 2px solid #fff;">
+                        <a href="course-details.html" class="card-img">
+                            <img src="img/course.png" class="img-fluid w-100" alt="">
+                        </a>
+                        <div class="card-info p-3">
+                            <div class="d-flex justify-content-center align-items-center gap-2 hovers course-toggle">
+                                <h5>Marketing course</h5>
+                                <i class="fa-solid fa-angle-down fs-4 drop-icon"></i>
+                            </div>
+                            <div class="drop-div d-none">
+                                <p>"Learn the fundamentals of marketing with a comprehensive course that helps you understand and apply modern marketing strategies successfully. Boost your business success and increase your sales!"</p>
+                                <ul>
+                                    <li><h6>Understanding your target audience</h6></li>
+                                    <li><h6>Conducting competitive analysis.</h6></li>
+                                </ul>
+                            </div>
+                            <div class="d-flex justify-content-center gap-2">
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-secondary"></i>
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center gap-3 mt-2">
+                                <span class="fs-4 fw-bold text-info">$299,43</span>
+                                <span class="fs-5 fw-bold text-secondary text-decoration-line-through">$534,33</span>
+                                <span class="fs-6 fw-bold text-danger">24% Off</span>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card bg-transparent ms-3 h-100" style="border: 2px solid #fff;">
+                        <a href="course-details.html" class="card-img">
+                            <img src="img/course.png" class="img-fluid w-100" alt="">
+                        </a>
+                        <div class="card-info p-3">
+                            <div class="d-flex justify-content-center align-items-center gap-2 hovers course-toggle">
+                                <h5>Marketing course</h5>
+                                <i class="fa-solid fa-angle-down fs-4 drop-icon"></i>
+                            </div>
+                            <div class="drop-div d-none">
+                                <p>"Learn the fundamentals of marketing with a comprehensive course that helps you understand and apply modern marketing strategies successfully. Boost your business success and increase your sales!"</p>
+                                <ul>
+                                    <li><h6>Understanding your target audience</h6></li>
+                                    <li><h6>Conducting competitive analysis.</h6></li>
+                                </ul>
+                            </div>
+                            <div class="d-flex justify-content-center gap-2">
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-secondary"></i>
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center gap-3 mt-2">
+                                <span class="fs-4 fw-bold text-info">$299,43</span>
+                                <span class="fs-5 fw-bold text-secondary text-decoration-line-through">$534,33</span>
+                                <span class="fs-6 fw-bold text-danger">24% Off</span>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card bg-transparent ms-3 h-100" style="border: 2px solid #fff;">
+                        <a href="course-details.html" class="card-img">
+                            <img src="img/course.png" class="img-fluid w-100" alt="">
+                        </a>
+                        <div class="card-info p-3">
+                            <div class="d-flex justify-content-center align-items-center gap-2 hovers course-toggle">
+                                <h5>Marketing course</h5>
+                                <i class="fa-solid fa-angle-down fs-4 drop-icon"></i>
+                            </div>
+                            <div class="drop-div d-none">
+                                <p>"Learn the fundamentals of marketing with a comprehensive course that helps you understand and apply modern marketing strategies successfully. Boost your business success and increase your sales!"</p>
+                                <ul>
+                                    <li><h6>Understanding your target audience</h6></li>
+                                    <li><h6>Conducting competitive analysis.</h6></li>
+                                </ul>
+                            </div>
+                            <div class="d-flex justify-content-center gap-2">
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-secondary"></i>
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center gap-3 mt-2">
+                                <span class="fs-4 fw-bold text-info">$299,43</span>
+                                <span class="fs-5 fw-bold text-secondary text-decoration-line-through">$534,33</span>
+                                <span class="fs-6 fw-bold text-danger">24% Off</span>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card bg-transparent ms-3 h-100" style="border: 2px solid #fff;">
+                        <a href="course-details.html" class="card-img">
+                            <img src="img/course.png" class="img-fluid w-100" alt="">
+                        </a>
+                        <div class="card-info p-3">
+                            <div class="d-flex justify-content-center align-items-center gap-2 hovers course-toggle">
+                                <h5>Marketing course</h5>
+                                <i class="fa-solid fa-angle-down fs-4 drop-icon"></i>
+                            </div>
+                            <div class="drop-div d-none">
+                                <p>"Learn the fundamentals of marketing with a comprehensive course that helps you understand and apply modern marketing strategies successfully. Boost your business success and increase your sales!"</p>
+                                <ul>
+                                    <li><h6>Understanding your target audience</h6></li>
+                                    <li><h6>Conducting competitive analysis.</h6></li>
+                                </ul>
+                            </div>
+                            <div class="d-flex justify-content-center gap-2">
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-secondary"></i>
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center gap-3 mt-2">
+                                <span class="fs-4 fw-bold text-info">$299,43</span>
+                                <span class="fs-5 fw-bold text-secondary text-decoration-line-through">$534,33</span>
+                                <span class="fs-6 fw-bold text-danger">24% Off</span>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card bg-transparent ms-3 h-100" style="border: 2px solid #fff;">
+                        <a href="course-details.html" class="card-img">
+                            <img src="img/course.png" class="img-fluid w-100" alt="">
+                        </a>
+                        <div class="card-info p-3">
+                            <div class="d-flex justify-content-center align-items-center gap-2 hovers course-toggle">
+                                <h5>Marketing course</h5>
+                                <i class="fa-solid fa-angle-down fs-4 drop-icon"></i>
+                            </div>
+                            <div class="drop-div d-none">
+                                <p>"Learn the fundamentals of marketing with a comprehensive course that helps you understand and apply modern marketing strategies successfully. Boost your business success and increase your sales!"</p>
+                                <ul>
+                                    <li><h6>Understanding your target audience</h6></li>
+                                    <li><h6>Conducting competitive analysis.</h6></li>
+                                </ul>
+                            </div>
+                            <div class="d-flex justify-content-center gap-2">
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-secondary"></i>
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center gap-3 mt-2">
+                                <span class="fs-4 fw-bold text-info">$299,43</span>
+                                <span class="fs-5 fw-bold text-secondary text-decoration-line-through">$534,33</span>
+                                <span class="fs-6 fw-bold text-danger">24% Off</span>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card bg-transparent ms-3 h-100" style="border: 2px solid #fff;">
+                        <a href="course-details.html" class="card-img">
+                            <img src="img/course.png" class="img-fluid w-100" alt="">
+                        </a>
+                        <div class="card-info p-3">
+                            <div class="d-flex justify-content-center align-items-center gap-2 hovers course-toggle">
+                                <h5>Marketing course</h5>
+                                <i class="fa-solid fa-angle-down fs-4 drop-icon"></i>
+                            </div>
+                            <div class="drop-div d-none">
+                                <p>"Learn the fundamentals of marketing with a comprehensive course that helps you understand and apply modern marketing strategies successfully. Boost your business success and increase your sales!"</p>
+                                <ul>
+                                    <li><h6>Understanding your target audience</h6></li>
+                                    <li><h6>Conducting competitive analysis.</h6></li>
+                                </ul>
+                            </div>
+                            <div class="d-flex justify-content-center gap-2">
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-secondary"></i>
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center gap-3 mt-2">
+                                <span class="fs-4 fw-bold text-info">$299,43</span>
+                                <span class="fs-5 fw-bold text-secondary text-decoration-line-through">$534,33</span>
+                                <span class="fs-6 fw-bold text-danger">24% Off</span>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card bg-transparent ms-3 h-100" style="border: 2px solid #fff;">
+                        <a href="course-details.html" class="card-img">
+                            <img src="img/course.png" class="img-fluid w-100" alt="">
+                        </a>
+                        <div class="card-info p-3">
+                            <div class="d-flex justify-content-center align-items-center gap-2 hovers course-toggle">
+                                <h5>Marketing course</h5>
+                                <i class="fa-solid fa-angle-down fs-4 drop-icon"></i>
+                            </div>
+                            <div class="drop-div d-none">
+                                <p>"Learn the fundamentals of marketing with a comprehensive course that helps you understand and apply modern marketing strategies successfully. Boost your business success and increase your sales!"</p>
+                                <ul>
+                                    <li><h6>Understanding your target audience</h6></li>
+                                    <li><h6>Conducting competitive analysis.</h6></li>
+                                </ul>
+                            </div>
+                            <div class="d-flex justify-content-center gap-2">
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-secondary"></i>
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center gap-3 mt-2">
+                                <span class="fs-4 fw-bold text-info">$299,43</span>
+                                <span class="fs-5 fw-bold text-secondary text-decoration-line-through">$534,33</span>
+                                <span class="fs-6 fw-bold text-danger">24% Off</span>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card bg-transparent ms-3 h-100" style="border: 2px solid #fff;">
+                        <a href="course-details.html" class="card-img">
+                            <img src="img/course.png" class="img-fluid w-100" alt="">
+                        </a>
+                        <div class="card-info p-3">
+                            <div class="d-flex justify-content-center align-items-center gap-2 hovers course-toggle">
+                                <h5>Marketing course</h5>
+                                <i class="fa-solid fa-angle-down fs-4 drop-icon"></i>
+                            </div>
+                            <div class="drop-div d-none">
+                                <p>"Learn the fundamentals of marketing with a comprehensive course that helps you understand and apply modern marketing strategies successfully. Boost your business success and increase your sales!"</p>
+                                <ul>
+                                    <li><h6>Understanding your target audience</h6></li>
+                                    <li><h6>Conducting competitive analysis.</h6></li>
+                                </ul>
+                            </div>
+                            <div class="d-flex justify-content-center gap-2">
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-secondary"></i>
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center gap-3 mt-2">
+                                <span class="fs-4 fw-bold text-info">$299,43</span>
+                                <span class="fs-5 fw-bold text-secondary text-decoration-line-through">$534,33</span>
+                                <span class="fs-6 fw-bold text-danger">24% Off</span>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card bg-transparent ms-3 h-100" style="border: 2px solid #fff;">
+                        <a href="course-details.html" class="card-img">
+                            <img src="img/course.png" class="img-fluid w-100" alt="">
+                        </a>
+                        <div class="card-info p-3">
+                            <div class="d-flex justify-content-center align-items-center gap-2 hovers course-toggle">
+                                <h5>Marketing course</h5>
+                                <i class="fa-solid fa-angle-down fs-4 drop-icon"></i>
+                            </div>
+                            <div class="drop-div d-none">
+                                <p>"Learn the fundamentals of marketing with a comprehensive course that helps you understand and apply modern marketing strategies successfully. Boost your business success and increase your sales!"</p>
+                                <ul>
+                                    <li><h6>Understanding your target audience</h6></li>
+                                    <li><h6>Conducting competitive analysis.</h6></li>
+                                </ul>
+                            </div>
+                            <div class="d-flex justify-content-center gap-2">
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-secondary"></i>
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center gap-3 mt-2">
+                                <span class="fs-4 fw-bold text-info">$299,43</span>
+                                <span class="fs-5 fw-bold text-secondary text-decoration-line-through">$534,33</span>
+                                <span class="fs-6 fw-bold text-danger">24% Off</span>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card bg-transparent ms-3 h-100" style="border: 2px solid #fff;">
+                        <a href="course-details.html" class="card-img">
+                            <img src="img/course.png" class="img-fluid w-100" alt="">
+                        </a>
+                        <div class="card-info p-3">
+                            <div class="d-flex justify-content-center align-items-center gap-2 hovers course-toggle">
+                                <h5>Marketing course</h5>
+                                <i class="fa-solid fa-angle-down fs-4 drop-icon"></i>
+                            </div>
+                            <div class="drop-div d-none">
+                                <p>"Learn the fundamentals of marketing with a comprehensive course that helps you understand and apply modern marketing strategies successfully. Boost your business success and increase your sales!"</p>
+                                <ul>
+                                    <li><h6>Understanding your target audience</h6></li>
+                                    <li><h6>Conducting competitive analysis.</h6></li>
+                                </ul>
+                            </div>
+                            <div class="d-flex justify-content-center gap-2">
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-secondary"></i>
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center gap-3 mt-2">
+                                <span class="fs-4 fw-bold text-info">$299,43</span>
+                                <span class="fs-5 fw-bold text-secondary text-decoration-line-through">$534,33</span>
+                                <span class="fs-6 fw-bold text-danger">24% Off</span>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card bg-transparent ms-3 h-100" style="border: 2px solid #fff;">
+                        <a href="course-details.html" class="card-img">
+                            <img src="img/course.png" class="img-fluid w-100" alt="">
+                        </a>
+                        <div class="card-info p-3">
+                            <div class="d-flex justify-content-center align-items-center gap-2 hovers course-toggle">
+                                <h5>Marketing course</h5>
+                                <i class="fa-solid fa-angle-down fs-4 drop-icon"></i>
+                            </div>
+                            <div class="drop-div d-none">
+                                <p>"Learn the fundamentals of marketing with a comprehensive course that helps you understand and apply modern marketing strategies successfully. Boost your business success and increase your sales!"</p>
+                                <ul>
+                                    <li><h6>Understanding your target audience</h6></li>
+                                    <li><h6>Conducting competitive analysis.</h6></li>
+                                </ul>
+                            </div>
+                            <div class="d-flex justify-content-center gap-2">
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-secondary"></i>
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center gap-3 mt-2">
+                                <span class="fs-4 fw-bold text-info">$299,43</span>
+                                <span class="fs-5 fw-bold text-secondary text-decoration-line-through">$534,33</span>
+                                <span class="fs-6 fw-bold text-danger">24% Off</span>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card bg-transparent ms-3 h-100" style="border: 2px solid #fff;">
+                        <a href="course-details.html" class="card-img">
+                            <img src="img/course.png" class="img-fluid w-100" alt="">
+                        </a>
+                        <div class="card-info p-3">
+                            <div class="d-flex justify-content-center align-items-center gap-2 hovers course-toggle">
+                                <h5>Marketing course</h5>
+                                <i class="fa-solid fa-angle-down fs-4 drop-icon"></i>
+                            </div>
+                            <div class="drop-div d-none">
+                                <p>"Learn the fundamentals of marketing with a comprehensive course that helps you understand and apply modern marketing strategies successfully. Boost your business success and increase your sales!"</p>
+                                <ul>
+                                    <li><h6>Understanding your target audience</h6></li>
+                                    <li><h6>Conducting competitive analysis.</h6></li>
+                                </ul>
+                            </div>
+                            <div class="d-flex justify-content-center gap-2">
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-warning"></i>
+                                <i class="fa-solid fa-star fs-6 text-secondary"></i>
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center gap-3 mt-2">
+                                <span class="fs-4 fw-bold text-info">$299,43</span>
+                                <span class="fs-5 fw-bold text-secondary text-decoration-line-through">$534,33</span>
+                                <span class="fs-6 fw-bold text-danger">24% Off</span>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination trust-pagination"></div>
+              
+                <!-- If we need navigation buttons -->
+                <!-- <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div> -->
+              
+                <!-- If we need scrollbar -->
+                <!-- <div class="swiper-scrollbar"></div> -->
+              </div>
+        </div>
+      </section>
+    <!--scirpt Files-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>AOS.init();</script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/main.js"></script>
+    <!--scirpt Files-->
+  </body>
+</html>
